@@ -16,14 +16,8 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 
 ```json
 {
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/wherewhere-cloud/where-php"
-    }
-  ],
   "require": {
-    "wherewhere-cloud/where-php": "*@dev"
+    "wherewhere/sdk": "*@dev"
   }
 }
 ```
