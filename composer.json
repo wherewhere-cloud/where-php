@@ -11,12 +11,12 @@
         "rest",
         "api"
     ],
-    "homepage": "https://openapi-generator.tech",
+    "homepage": "https://www.wherewhere.cloud",
     "license": "unlicense",
     "authors": [
         {
             "name": "OpenAPI-Generator contributors",
-            "homepage": "https://openapi-generator.tech"
+            "homepage": "https://www.wherewhere.cloud"
         }
     ],
     "require": {
