@@ -266,7 +266,7 @@ class InlineResponse2003Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets driving_count
      *
-     * @param int $driving_count driving_count
+     * @param int $driving_count 行驶设备数
      *
      * @return self
      */
@@ -290,7 +290,7 @@ class InlineResponse2003Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets stop_count
      *
-     * @param int $stop_count stop_count
+     * @param int $stop_count 停车设备数
      *
      * @return self
      */
@@ -314,7 +314,7 @@ class InlineResponse2003Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets lost_connect_count
      *
-     * @param int $lost_connect_count lost_connect_count
+     * @param int $lost_connect_count 离线设备数
      *
      * @return self
      */
@@ -338,7 +338,7 @@ class InlineResponse2003Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_count
      *
-     * @param int $total_count total_count
+     * @param int $total_count 总设备数
      *
      * @return self
      */
@@ -362,7 +362,7 @@ class InlineResponse2003Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets current_page
      *
-     * @param int $current_page current_page
+     * @param int $current_page 当前页面
      *
      * @return self
      */
@@ -386,7 +386,7 @@ class InlineResponse2003Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_page
      *
-     * @param int $total_page total_page
+     * @param int $total_page 总页数
      *
      * @return self
      */

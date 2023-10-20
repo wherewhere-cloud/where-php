@@ -59,12 +59,15 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'imei' => 'string',
+        'start_time' => 'string',
+        'start_lng' => 'string',
+        'start_lat' => 'string',
+        'end_time' => 'string',
+        'end_lng' => 'string',
+        'end_lat' => 'string',
         'total_distance' => 'int',
         'total_time' => 'int',
-        'date' => 'string',
-        'tags' => 'string',
-        'mark' => 'string'
+        'action_type' => 'int'
     ];
 
     /**
@@ -75,12 +78,15 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'imei' => null,
+        'start_time' => null,
+        'start_lng' => null,
+        'start_lat' => null,
+        'end_time' => null,
+        'end_lng' => null,
+        'end_lat' => null,
         'total_distance' => null,
         'total_time' => null,
-        'date' => null,
-        'tags' => null,
-        'mark' => null
+        'action_type' => null
     ];
 
     /**
@@ -110,12 +116,15 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'imei' => 'imei',
+        'start_time' => 'start_time',
+        'start_lng' => 'start_lng',
+        'start_lat' => 'start_lat',
+        'end_time' => 'end_time',
+        'end_lng' => 'end_lng',
+        'end_lat' => 'end_lat',
         'total_distance' => 'total_distance',
         'total_time' => 'total_time',
-        'date' => 'date',
-        'tags' => 'tags',
-        'mark' => 'mark'
+        'action_type' => 'action_type'
     ];
 
     /**
@@ -124,12 +133,15 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'imei' => 'setImei',
+        'start_time' => 'setStartTime',
+        'start_lng' => 'setStartLng',
+        'start_lat' => 'setStartLat',
+        'end_time' => 'setEndTime',
+        'end_lng' => 'setEndLng',
+        'end_lat' => 'setEndLat',
         'total_distance' => 'setTotalDistance',
         'total_time' => 'setTotalTime',
-        'date' => 'setDate',
-        'tags' => 'setTags',
-        'mark' => 'setMark'
+        'action_type' => 'setActionType'
     ];
 
     /**
@@ -138,12 +150,15 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'imei' => 'getImei',
+        'start_time' => 'getStartTime',
+        'start_lng' => 'getStartLng',
+        'start_lat' => 'getStartLat',
+        'end_time' => 'getEndTime',
+        'end_lng' => 'getEndLng',
+        'end_lat' => 'getEndLat',
         'total_distance' => 'getTotalDistance',
         'total_time' => 'getTotalTime',
-        'date' => 'getDate',
-        'tags' => 'getTags',
-        'mark' => 'getMark'
+        'action_type' => 'getActionType'
     ];
 
     /**
@@ -203,12 +218,15 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['imei'] = $data['imei'] ?? null;
+        $this->container['start_time'] = $data['start_time'] ?? null;
+        $this->container['start_lng'] = $data['start_lng'] ?? null;
+        $this->container['start_lat'] = $data['start_lat'] ?? null;
+        $this->container['end_time'] = $data['end_time'] ?? null;
+        $this->container['end_lng'] = $data['end_lng'] ?? null;
+        $this->container['end_lat'] = $data['end_lat'] ?? null;
         $this->container['total_distance'] = $data['total_distance'] ?? null;
         $this->container['total_time'] = $data['total_time'] ?? null;
-        $this->container['date'] = $data['date'] ?? null;
-        $this->container['tags'] = $data['tags'] ?? null;
-        $this->container['mark'] = $data['mark'] ?? null;
+        $this->container['action_type'] = $data['action_type'] ?? null;
     }
 
     /**
@@ -220,8 +238,23 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['imei'] === null) {
-            $invalidProperties[] = "'imei' can't be null";
+        if ($this->container['start_time'] === null) {
+            $invalidProperties[] = "'start_time' can't be null";
+        }
+        if ($this->container['start_lng'] === null) {
+            $invalidProperties[] = "'start_lng' can't be null";
+        }
+        if ($this->container['start_lat'] === null) {
+            $invalidProperties[] = "'start_lat' can't be null";
+        }
+        if ($this->container['end_time'] === null) {
+            $invalidProperties[] = "'end_time' can't be null";
+        }
+        if ($this->container['end_lng'] === null) {
+            $invalidProperties[] = "'end_lng' can't be null";
+        }
+        if ($this->container['end_lat'] === null) {
+            $invalidProperties[] = "'end_lat' can't be null";
         }
         if ($this->container['total_distance'] === null) {
             $invalidProperties[] = "'total_distance' can't be null";
@@ -229,14 +262,8 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['total_time'] === null) {
             $invalidProperties[] = "'total_time' can't be null";
         }
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
-        }
-        if ($this->container['tags'] === null) {
-            $invalidProperties[] = "'tags' can't be null";
-        }
-        if ($this->container['mark'] === null) {
-            $invalidProperties[] = "'mark' can't be null";
+        if ($this->container['action_type'] === null) {
+            $invalidProperties[] = "'action_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -254,25 +281,145 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets imei
+     * Gets start_time
      *
      * @return string
      */
-    public function getImei()
+    public function getStartTime()
     {
-        return $this->container['imei'];
+        return $this->container['start_time'];
     }
 
     /**
-     * Sets imei
+     * Sets start_time
      *
-     * @param string $imei imei
+     * @param string $start_time 起始坐标点时间
      *
      * @return self
      */
-    public function setImei($imei)
+    public function setStartTime($start_time)
     {
-        $this->container['imei'] = $imei;
+        $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_lng
+     *
+     * @return string
+     */
+    public function getStartLng()
+    {
+        return $this->container['start_lng'];
+    }
+
+    /**
+     * Sets start_lng
+     *
+     * @param string $start_lng 起始坐标点经度
+     *
+     * @return self
+     */
+    public function setStartLng($start_lng)
+    {
+        $this->container['start_lng'] = $start_lng;
+
+        return $this;
+    }
+
+    /**
+     * Gets start_lat
+     *
+     * @return string
+     */
+    public function getStartLat()
+    {
+        return $this->container['start_lat'];
+    }
+
+    /**
+     * Sets start_lat
+     *
+     * @param string $start_lat 起始坐标点纬度
+     *
+     * @return self
+     */
+    public function setStartLat($start_lat)
+    {
+        $this->container['start_lat'] = $start_lat;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_time
+     *
+     * @return string
+     */
+    public function getEndTime()
+    {
+        return $this->container['end_time'];
+    }
+
+    /**
+     * Sets end_time
+     *
+     * @param string $end_time 结束坐标点时间
+     *
+     * @return self
+     */
+    public function setEndTime($end_time)
+    {
+        $this->container['end_time'] = $end_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_lng
+     *
+     * @return string
+     */
+    public function getEndLng()
+    {
+        return $this->container['end_lng'];
+    }
+
+    /**
+     * Sets end_lng
+     *
+     * @param string $end_lng 结束坐标点经度
+     *
+     * @return self
+     */
+    public function setEndLng($end_lng)
+    {
+        $this->container['end_lng'] = $end_lng;
+
+        return $this;
+    }
+
+    /**
+     * Gets end_lat
+     *
+     * @return string
+     */
+    public function getEndLat()
+    {
+        return $this->container['end_lat'];
+    }
+
+    /**
+     * Sets end_lat
+     *
+     * @param string $end_lat 结束坐标点纬度
+     *
+     * @return self
+     */
+    public function setEndLat($end_lat)
+    {
+        $this->container['end_lat'] = $end_lat;
 
         return $this;
     }
@@ -290,7 +437,7 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_distance
      *
-     * @param int $total_distance total_distance
+     * @param int $total_distance 总距离，单位米
      *
      * @return self
      */
@@ -314,7 +461,7 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets total_time
      *
-     * @param int $total_time total_time
+     * @param int $total_time 总时间，单位秒
      *
      * @return self
      */
@@ -326,73 +473,25 @@ class InlineResponse2008Data implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets date
+     * Gets action_type
      *
-     * @return string
+     * @return int
      */
-    public function getDate()
+    public function getActionType()
     {
-        return $this->container['date'];
+        return $this->container['action_type'];
     }
 
     /**
-     * Sets date
+     * Sets action_type
      *
-     * @param string $date date
+     * @param int $action_type 驾驶行为类型  1行驶 2静止 3未上报数据
      *
      * @return self
      */
-    public function setDate($date)
+    public function setActionType($action_type)
     {
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return string
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param string $tags tags
-     *
-     * @return self
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets mark
-     *
-     * @return string
-     */
-    public function getMark()
-    {
-        return $this->container['mark'];
-    }
-
-    /**
-     * Sets mark
-     *
-     * @param string $mark mark
-     *
-     * @return self
-     */
-    public function setMark($mark)
-    {
-        $this->container['mark'] = $mark;
+        $this->container['action_type'] = $action_type;
 
         return $this;
     }

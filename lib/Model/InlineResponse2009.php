@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200Data
+ * InlineResponse2009
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Wherewhere\ObjectSerializer;
 
 /**
- * InlineResponse200Data Class Doc Comment
+ * InlineResponse2009 Class Doc Comment
  *
  * @category Class
  * @package  Wherewhere
@@ -42,7 +42,7 @@ use \Wherewhere\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSerializable
+class InlineResponse2009 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
       *
       * @var string
       */
-    protected static $openAPIModelName = 'inline_response_200_data';
+    protected static $openAPIModelName = 'inline_response_200_9';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,16 +59,9 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'imei' => 'string',
-        'tags' => 'string',
-        'mark' => 'string',
-        'status' => 'int',
-        'longitude' => 'float',
-        'latitude' => 'float',
-        'speed' => 'int',
-        'course' => 'int',
-        'gps_time' => 'int',
-        'state_start_time' => 'int'
+        'code' => 'int',
+        'data' => '\Wherewhere\Model\InlineResponse2009Data[]',
+        'msg' => 'string'
     ];
 
     /**
@@ -79,16 +72,9 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'imei' => null,
-        'tags' => null,
-        'mark' => null,
-        'status' => null,
-        'longitude' => null,
-        'latitude' => null,
-        'speed' => null,
-        'course' => null,
-        'gps_time' => null,
-        'state_start_time' => null
+        'code' => null,
+        'data' => null,
+        'msg' => null
     ];
 
     /**
@@ -118,16 +104,9 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'imei' => 'imei',
-        'tags' => 'tags',
-        'mark' => 'mark',
-        'status' => 'status',
-        'longitude' => 'longitude',
-        'latitude' => 'latitude',
-        'speed' => 'speed',
-        'course' => 'course',
-        'gps_time' => 'gps_time',
-        'state_start_time' => 'state_start_time'
+        'code' => 'code',
+        'data' => 'data',
+        'msg' => 'msg'
     ];
 
     /**
@@ -136,16 +115,9 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'imei' => 'setImei',
-        'tags' => 'setTags',
-        'mark' => 'setMark',
-        'status' => 'setStatus',
-        'longitude' => 'setLongitude',
-        'latitude' => 'setLatitude',
-        'speed' => 'setSpeed',
-        'course' => 'setCourse',
-        'gps_time' => 'setGpsTime',
-        'state_start_time' => 'setStateStartTime'
+        'code' => 'setCode',
+        'data' => 'setData',
+        'msg' => 'setMsg'
     ];
 
     /**
@@ -154,16 +126,9 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'imei' => 'getImei',
-        'tags' => 'getTags',
-        'mark' => 'getMark',
-        'status' => 'getStatus',
-        'longitude' => 'getLongitude',
-        'latitude' => 'getLatitude',
-        'speed' => 'getSpeed',
-        'course' => 'getCourse',
-        'gps_time' => 'getGpsTime',
-        'state_start_time' => 'getStateStartTime'
+        'code' => 'getCode',
+        'data' => 'getData',
+        'msg' => 'getMsg'
     ];
 
     /**
@@ -223,16 +188,9 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(array $data = null)
     {
-        $this->container['imei'] = $data['imei'] ?? null;
-        $this->container['tags'] = $data['tags'] ?? null;
-        $this->container['mark'] = $data['mark'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['longitude'] = $data['longitude'] ?? null;
-        $this->container['latitude'] = $data['latitude'] ?? null;
-        $this->container['speed'] = $data['speed'] ?? null;
-        $this->container['course'] = $data['course'] ?? null;
-        $this->container['gps_time'] = $data['gps_time'] ?? null;
-        $this->container['state_start_time'] = $data['state_start_time'] ?? null;
+        $this->container['code'] = $data['code'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
+        $this->container['msg'] = $data['msg'] ?? null;
     }
 
     /**
@@ -244,8 +202,14 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['state_start_time'] === null) {
-            $invalidProperties[] = "'state_start_time' can't be null";
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
+        }
+        if ($this->container['msg'] === null) {
+            $invalidProperties[] = "'msg' can't be null";
         }
         return $invalidProperties;
     }
@@ -263,241 +227,73 @@ class InlineResponse200Data implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets imei
-     *
-     * @return string|null
-     */
-    public function getImei()
-    {
-        return $this->container['imei'];
-    }
-
-    /**
-     * Sets imei
-     *
-     * @param string|null $imei 设备imei
-     *
-     * @return self
-     */
-    public function setImei($imei)
-    {
-        $this->container['imei'] = $imei;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     *
-     * @return string|null
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     *
-     * @param string|null $tags 标签
-     *
-     * @return self
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Gets mark
-     *
-     * @return string|null
-     */
-    public function getMark()
-    {
-        return $this->container['mark'];
-    }
-
-    /**
-     * Sets mark
-     *
-     * @param string|null $mark 备注
-     *
-     * @return self
-     */
-    public function setMark($mark)
-    {
-        $this->container['mark'] = $mark;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status 设备状态 1行驶 2停车 3离线
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets longitude
-     *
-     * @return float|null
-     */
-    public function getLongitude()
-    {
-        return $this->container['longitude'];
-    }
-
-    /**
-     * Sets longitude
-     *
-     * @param float|null $longitude 纬度
-     *
-     * @return self
-     */
-    public function setLongitude($longitude)
-    {
-        $this->container['longitude'] = $longitude;
-
-        return $this;
-    }
-
-    /**
-     * Gets latitude
-     *
-     * @return float|null
-     */
-    public function getLatitude()
-    {
-        return $this->container['latitude'];
-    }
-
-    /**
-     * Sets latitude
-     *
-     * @param float|null $latitude 经度
-     *
-     * @return self
-     */
-    public function setLatitude($latitude)
-    {
-        $this->container['latitude'] = $latitude;
-
-        return $this;
-    }
-
-    /**
-     * Gets speed
-     *
-     * @return int|null
-     */
-    public function getSpeed()
-    {
-        return $this->container['speed'];
-    }
-
-    /**
-     * Sets speed
-     *
-     * @param int|null $speed 速度 km/h
-     *
-     * @return self
-     */
-    public function setSpeed($speed)
-    {
-        $this->container['speed'] = $speed;
-
-        return $this;
-    }
-
-    /**
-     * Gets course
-     *
-     * @return int|null
-     */
-    public function getCourse()
-    {
-        return $this->container['course'];
-    }
-
-    /**
-     * Sets course
-     *
-     * @param int|null $course 航向
-     *
-     * @return self
-     */
-    public function setCourse($course)
-    {
-        $this->container['course'] = $course;
-
-        return $this;
-    }
-
-    /**
-     * Gets gps_time
-     *
-     * @return int|null
-     */
-    public function getGpsTime()
-    {
-        return $this->container['gps_time'];
-    }
-
-    /**
-     * Sets gps_time
-     *
-     * @param int|null $gps_time gps更新时间
-     *
-     * @return self
-     */
-    public function setGpsTime($gps_time)
-    {
-        $this->container['gps_time'] = $gps_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets state_start_time
+     * Gets code
      *
      * @return int
      */
-    public function getStateStartTime()
+    public function getCode()
     {
-        return $this->container['state_start_time'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets state_start_time
+     * Sets code
      *
-     * @param int $state_start_time 设备状态开始时间
+     * @param int $code code
      *
      * @return self
      */
-    public function setStateStartTime($state_start_time)
+    public function setCode($code)
     {
-        $this->container['state_start_time'] = $state_start_time;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \Wherewhere\Model\InlineResponse2009Data[]
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \Wherewhere\Model\InlineResponse2009Data[] $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets msg
+     *
+     * @return string
+     */
+    public function getMsg()
+    {
+        return $this->container['msg'];
+    }
+
+    /**
+     * Sets msg
+     *
+     * @param string $msg msg
+     *
+     * @return self
+     */
+    public function setMsg($msg)
+    {
+        $this->container['msg'] = $msg;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 {
     "name": "wherewhere/sdk",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "WhereWhere.cloud",
     "keywords": [
         "openapitools",
@@ -15,7 +15,7 @@
     "license": "unlicense",
     "authors": [
         {
-            "name": "OpenAPI-Generator contributors",
+            "name": "Linxiaoping",
             "homepage": "https://www.wherewhere.cloud"
         }
     ],

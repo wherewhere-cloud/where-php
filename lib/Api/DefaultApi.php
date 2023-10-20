@@ -120,13 +120,13 @@ class DefaultApi
      *
      * 授权设备
      *
-     * @param  string $is_all 是否授权全部设备 (required)
-     * @param  string $account_id account_id (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否授权全部设备 1 是 0 不是 (required)
+     * @param  string $account_id 子账号id (required)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Wherewhere\Model\InlineResponse2006
      */
     public function accountAuthorizeDevicePost($is_all, $account_id, $imei_list = null)
     {
@@ -139,13 +139,13 @@ class DefaultApi
      *
      * 授权设备
      *
-     * @param  string $is_all 是否授权全部设备 (required)
-     * @param  string $account_id (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否授权全部设备 1 是 0 不是 (required)
+     * @param  string $account_id 子账号id (required)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountAuthorizeDevicePostWithHttpInfo($is_all, $account_id, $imei_list = null)
     {
@@ -188,20 +188,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Wherewhere\Model\InlineResponse2006';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -219,7 +219,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Wherewhere\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -234,9 +234,9 @@ class DefaultApi
      *
      * 授权设备
      *
-     * @param  string $is_all 是否授权全部设备 (required)
-     * @param  string $account_id (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否授权全部设备 1 是 0 不是 (required)
+     * @param  string $account_id 子账号id (required)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -256,16 +256,16 @@ class DefaultApi
      *
      * 授权设备
      *
-     * @param  string $is_all 是否授权全部设备 (required)
-     * @param  string $account_id (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否授权全部设备 1 是 0 不是 (required)
+     * @param  string $account_id 子账号id (required)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function accountAuthorizeDevicePostAsyncWithHttpInfo($is_all, $account_id, $imei_list = null)
     {
-        $returnType = 'object';
+        $returnType = '\Wherewhere\Model\InlineResponse2006';
         $request = $this->accountAuthorizeDevicePostRequest($is_all, $account_id, $imei_list);
 
         return $this->client
@@ -304,9 +304,9 @@ class DefaultApi
     /**
      * Create request for operation 'accountAuthorizeDevicePost'
      *
-     * @param  string $is_all 是否授权全部设备 (required)
-     * @param  string $account_id (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否授权全部设备 1 是 0 不是 (required)
+     * @param  string $account_id 子账号id (required)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -420,7 +420,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Wherewhere\Model\InlineResponse2006
      */
     public function accountChangePasswordPost($old_password, $new_password)
     {
@@ -438,7 +438,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountChangePasswordPostWithHttpInfo($old_password, $new_password)
     {
@@ -481,20 +481,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Wherewhere\Model\InlineResponse2006';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -512,7 +512,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Wherewhere\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -556,7 +556,7 @@ class DefaultApi
      */
     public function accountChangePasswordPostAsyncWithHttpInfo($old_password, $new_password)
     {
-        $returnType = 'object';
+        $returnType = '\Wherewhere\Model\InlineResponse2006';
         $request = $this->accountChangePasswordPostRequest($old_password, $new_password);
 
         return $this->client
@@ -702,7 +702,7 @@ class DefaultApi
      * 添加子账号
      *
      * @param  string $username 用户名，可以是邮箱或者手机 (required)
-     * @param  string $password password (required)
+     * @param  string $password 密码 (required)
      * @param  string $account_name 账户名称 (required)
      * @param  string $remark 公司名称 (optional)
      * @param  string $active_time 有效日期 (optional)
@@ -725,7 +725,7 @@ class DefaultApi
      * 添加子账号
      *
      * @param  string $username 用户名，可以是邮箱或者手机 (required)
-     * @param  string $password (required)
+     * @param  string $password 密码 (required)
      * @param  string $account_name 账户名称 (required)
      * @param  string $remark 公司名称 (optional)
      * @param  string $active_time 有效日期 (optional)
@@ -824,7 +824,7 @@ class DefaultApi
      * 添加子账号
      *
      * @param  string $username 用户名，可以是邮箱或者手机 (required)
-     * @param  string $password (required)
+     * @param  string $password 密码 (required)
      * @param  string $account_name 账户名称 (required)
      * @param  string $remark 公司名称 (optional)
      * @param  string $active_time 有效日期 (optional)
@@ -850,7 +850,7 @@ class DefaultApi
      * 添加子账号
      *
      * @param  string $username 用户名，可以是邮箱或者手机 (required)
-     * @param  string $password (required)
+     * @param  string $password 密码 (required)
      * @param  string $account_name 账户名称 (required)
      * @param  string $remark 公司名称 (optional)
      * @param  string $active_time 有效日期 (optional)
@@ -902,7 +902,7 @@ class DefaultApi
      * Create request for operation 'accountCreatePost'
      *
      * @param  string $username 用户名，可以是邮箱或者手机 (required)
-     * @param  string $password (required)
+     * @param  string $password 密码 (required)
      * @param  string $account_name 账户名称 (required)
      * @param  string $remark 公司名称 (optional)
      * @param  string $active_time 有效日期 (optional)
@@ -1039,16 +1039,16 @@ class DefaultApi
      * 移除设备
      *
      * @param  string $account_id 子账号id (required)
-     * @param  string $is_all 是否移除所有设备 (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否移除所有设备 1 是 0 不是 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Wherewhere\Model\InlineResponse2006
      */
-    public function accountRemoveDevicePost($account_id, $is_all, $imei_list = null)
+    public function accountRemoveDevicePost($account_id, $imei_list = null, $is_all = null)
     {
-        list($response) = $this->accountRemoveDevicePostWithHttpInfo($account_id, $is_all, $imei_list);
+        list($response) = $this->accountRemoveDevicePostWithHttpInfo($account_id, $imei_list, $is_all);
         return $response;
     }
 
@@ -1058,16 +1058,16 @@ class DefaultApi
      * 移除设备
      *
      * @param  string $account_id 子账号id (required)
-     * @param  string $is_all 是否移除所有设备 (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否移除所有设备 1 是 0 不是 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountRemoveDevicePostWithHttpInfo($account_id, $is_all, $imei_list = null)
+    public function accountRemoveDevicePostWithHttpInfo($account_id, $imei_list = null, $is_all = null)
     {
-        $request = $this->accountRemoveDevicePostRequest($account_id, $is_all, $imei_list);
+        $request = $this->accountRemoveDevicePostRequest($account_id, $imei_list, $is_all);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1106,20 +1106,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Wherewhere\Model\InlineResponse2006';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1137,7 +1137,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Wherewhere\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1153,15 +1153,15 @@ class DefaultApi
      * 移除设备
      *
      * @param  string $account_id 子账号id (required)
-     * @param  string $is_all 是否移除所有设备 (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否移除所有设备 1 是 0 不是 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountRemoveDevicePostAsync($account_id, $is_all, $imei_list = null)
+    public function accountRemoveDevicePostAsync($account_id, $imei_list = null, $is_all = null)
     {
-        return $this->accountRemoveDevicePostAsyncWithHttpInfo($account_id, $is_all, $imei_list)
+        return $this->accountRemoveDevicePostAsyncWithHttpInfo($account_id, $imei_list, $is_all)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1175,16 +1175,16 @@ class DefaultApi
      * 移除设备
      *
      * @param  string $account_id 子账号id (required)
-     * @param  string $is_all 是否移除所有设备 (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否移除所有设备 1 是 0 不是 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountRemoveDevicePostAsyncWithHttpInfo($account_id, $is_all, $imei_list = null)
+    public function accountRemoveDevicePostAsyncWithHttpInfo($account_id, $imei_list = null, $is_all = null)
     {
-        $returnType = 'object';
-        $request = $this->accountRemoveDevicePostRequest($account_id, $is_all, $imei_list);
+        $returnType = '\Wherewhere\Model\InlineResponse2006';
+        $request = $this->accountRemoveDevicePostRequest($account_id, $imei_list, $is_all);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1223,24 +1223,18 @@ class DefaultApi
      * Create request for operation 'accountRemoveDevicePost'
      *
      * @param  string $account_id 子账号id (required)
-     * @param  string $is_all 是否移除所有设备 (required)
-     * @param  int $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $imei_list 设备列表 多个用,隔开 (optional)
+     * @param  string $is_all 是否移除所有设备 1 是 0 不是 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountRemoveDevicePostRequest($account_id, $is_all, $imei_list = null)
+    public function accountRemoveDevicePostRequest($account_id, $imei_list = null, $is_all = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $account_id when calling accountRemoveDevicePost'
-            );
-        }
-        // verify the required parameter 'is_all' is set
-        if ($is_all === null || (is_array($is_all) && count($is_all) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $is_all when calling accountRemoveDevicePost'
             );
         }
 
@@ -1338,7 +1332,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Wherewhere\Model\InlineResponse2006
      */
     public function accountSetStatusPost($account_id, $status = null)
     {
@@ -1356,7 +1350,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountSetStatusPostWithHttpInfo($account_id, $status = null)
     {
@@ -1399,20 +1393,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Wherewhere\Model\InlineResponse2006';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1430,7 +1424,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Wherewhere\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1474,7 +1468,7 @@ class DefaultApi
      */
     public function accountSetStatusPostAsyncWithHttpInfo($account_id, $status = null)
     {
-        $returnType = 'object';
+        $returnType = '\Wherewhere\Model\InlineResponse2006';
         $request = $this->accountSetStatusPostRequest($account_id, $status);
 
         return $this->client
@@ -1624,7 +1618,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Wherewhere\Model\InlineResponse2006
      */
     public function accountUpdatePost($account_id, $username = null, $account_name = null, $password = null, $remark = null, $active_time = null, $contact_phone = null, $contact_email = null)
     {
@@ -1648,7 +1642,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
     public function accountUpdatePostWithHttpInfo($account_id, $username = null, $account_name = null, $password = null, $remark = null, $active_time = null, $contact_phone = null, $contact_email = null)
     {
@@ -1691,20 +1685,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Wherewhere\Model\InlineResponse2006';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1722,7 +1716,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Wherewhere\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1778,7 +1772,7 @@ class DefaultApi
      */
     public function accountUpdatePostAsyncWithHttpInfo($account_id, $username = null, $account_name = null, $password = null, $remark = null, $active_time = null, $contact_phone = null, $contact_email = null)
     {
-        $returnType = 'object';
+        $returnType = '\Wherewhere\Model\InlineResponse2006';
         $request = $this->accountUpdatePostRequest($account_id, $username, $account_name, $password, $remark, $active_time, $contact_phone, $contact_email);
 
         return $this->client
@@ -1947,16 +1941,16 @@ class DefaultApi
      *
      * 子账户列表
      *
-     * @param  int $is_include_self 是否包含主账号本身 (required)
      * @param  string $account_id 子账号id (optional)
+     * @param  int $is_include_self 是否包含主账号本身 0 不包含 1 包含 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Wherewhere\Model\InlineResponse2002
      */
-    public function accountsGet($is_include_self, $account_id = null)
+    public function accountsGet($account_id = null, $is_include_self = null)
     {
-        list($response) = $this->accountsGetWithHttpInfo($is_include_self, $account_id);
+        list($response) = $this->accountsGetWithHttpInfo($account_id, $is_include_self);
         return $response;
     }
 
@@ -1965,16 +1959,16 @@ class DefaultApi
      *
      * 子账户列表
      *
-     * @param  int $is_include_self 是否包含主账号本身 (required)
      * @param  string $account_id 子账号id (optional)
+     * @param  int $is_include_self 是否包含主账号本身 0 不包含 1 包含 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Wherewhere\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsGetWithHttpInfo($is_include_self, $account_id = null)
+    public function accountsGetWithHttpInfo($account_id = null, $is_include_self = null)
     {
-        $request = $this->accountsGetRequest($is_include_self, $account_id);
+        $request = $this->accountsGetRequest($account_id, $is_include_self);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2059,15 +2053,15 @@ class DefaultApi
      *
      * 子账户列表
      *
-     * @param  int $is_include_self 是否包含主账号本身 (required)
      * @param  string $account_id 子账号id (optional)
+     * @param  int $is_include_self 是否包含主账号本身 0 不包含 1 包含 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsGetAsync($is_include_self, $account_id = null)
+    public function accountsGetAsync($account_id = null, $is_include_self = null)
     {
-        return $this->accountsGetAsyncWithHttpInfo($is_include_self, $account_id)
+        return $this->accountsGetAsyncWithHttpInfo($account_id, $is_include_self)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2080,16 +2074,16 @@ class DefaultApi
      *
      * 子账户列表
      *
-     * @param  int $is_include_self 是否包含主账号本身 (required)
      * @param  string $account_id 子账号id (optional)
+     * @param  int $is_include_self 是否包含主账号本身 0 不包含 1 包含 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsGetAsyncWithHttpInfo($is_include_self, $account_id = null)
+    public function accountsGetAsyncWithHttpInfo($account_id = null, $is_include_self = null)
     {
         $returnType = '\Wherewhere\Model\InlineResponse2002';
-        $request = $this->accountsGetRequest($is_include_self, $account_id);
+        $request = $this->accountsGetRequest($account_id, $is_include_self);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2127,20 +2121,14 @@ class DefaultApi
     /**
      * Create request for operation 'accountsGet'
      *
-     * @param  int $is_include_self 是否包含主账号本身 (required)
      * @param  string $account_id 子账号id (optional)
+     * @param  int $is_include_self 是否包含主账号本身 0 不包含 1 包含 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountsGetRequest($is_include_self, $account_id = null)
+    public function accountsGetRequest($account_id = null, $is_include_self = null)
     {
-        // verify the required parameter 'is_include_self' is set
-        if ($is_include_self === null || (is_array($is_include_self) && count($is_include_self) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $is_include_self when calling accountsGet'
-            );
-        }
 
         $resourcePath = '/accounts';
         $formParams = [];
@@ -2242,17 +2230,16 @@ class DefaultApi
      * 添加设备
      *
      * @param  string $imei 设备唯一识别号 (required)
-     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (required)
+     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (optional)
      * @param  string $tags 标签名称，默认为空，支持多个标签，用逗号隔开，最多支持10个标签 (optional)
-     * @param  string $account_id 子账号 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Wherewhere\Model\InlineResponse2004
      */
-    public function deviceCreatePost($imei, $mark, $tags = null, $account_id = null)
+    public function deviceCreatePost($imei, $mark = null, $tags = null)
     {
-        list($response) = $this->deviceCreatePostWithHttpInfo($imei, $mark, $tags, $account_id);
+        list($response) = $this->deviceCreatePostWithHttpInfo($imei, $mark, $tags);
         return $response;
     }
 
@@ -2262,17 +2249,16 @@ class DefaultApi
      * 添加设备
      *
      * @param  string $imei 设备唯一识别号 (required)
-     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (required)
+     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (optional)
      * @param  string $tags 标签名称，默认为空，支持多个标签，用逗号隔开，最多支持10个标签 (optional)
-     * @param  string $account_id 子账号 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Wherewhere\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deviceCreatePostWithHttpInfo($imei, $mark, $tags = null, $account_id = null)
+    public function deviceCreatePostWithHttpInfo($imei, $mark = null, $tags = null)
     {
-        $request = $this->deviceCreatePostRequest($imei, $mark, $tags, $account_id);
+        $request = $this->deviceCreatePostRequest($imei, $mark, $tags);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2358,16 +2344,15 @@ class DefaultApi
      * 添加设备
      *
      * @param  string $imei 设备唯一识别号 (required)
-     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (required)
+     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (optional)
      * @param  string $tags 标签名称，默认为空，支持多个标签，用逗号隔开，最多支持10个标签 (optional)
-     * @param  string $account_id 子账号 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deviceCreatePostAsync($imei, $mark, $tags = null, $account_id = null)
+    public function deviceCreatePostAsync($imei, $mark = null, $tags = null)
     {
-        return $this->deviceCreatePostAsyncWithHttpInfo($imei, $mark, $tags, $account_id)
+        return $this->deviceCreatePostAsyncWithHttpInfo($imei, $mark, $tags)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2381,17 +2366,16 @@ class DefaultApi
      * 添加设备
      *
      * @param  string $imei 设备唯一识别号 (required)
-     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (required)
+     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (optional)
      * @param  string $tags 标签名称，默认为空，支持多个标签，用逗号隔开，最多支持10个标签 (optional)
-     * @param  string $account_id 子账号 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deviceCreatePostAsyncWithHttpInfo($imei, $mark, $tags = null, $account_id = null)
+    public function deviceCreatePostAsyncWithHttpInfo($imei, $mark = null, $tags = null)
     {
         $returnType = '\Wherewhere\Model\InlineResponse2004';
-        $request = $this->deviceCreatePostRequest($imei, $mark, $tags, $account_id);
+        $request = $this->deviceCreatePostRequest($imei, $mark, $tags);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2430,25 +2414,18 @@ class DefaultApi
      * Create request for operation 'deviceCreatePost'
      *
      * @param  string $imei 设备唯一识别号 (required)
-     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (required)
+     * @param  string $mark 设备备注，可以是车牌号，最长100个字符 (optional)
      * @param  string $tags 标签名称，默认为空，支持多个标签，用逗号隔开，最多支持10个标签 (optional)
-     * @param  string $account_id 子账号 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function deviceCreatePostRequest($imei, $mark, $tags = null, $account_id = null)
+    public function deviceCreatePostRequest($imei, $mark = null, $tags = null)
     {
         // verify the required parameter 'imei' is set
         if ($imei === null || (is_array($imei) && count($imei) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $imei when calling deviceCreatePost'
-            );
-        }
-        // verify the required parameter 'mark' is set
-        if ($mark === null || (is_array($mark) && count($mark) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $mark when calling deviceCreatePost'
             );
         }
 
@@ -2473,10 +2450,6 @@ class DefaultApi
         // form params
         if ($tags !== null) {
             $formParams['tags'] = ObjectSerializer::toFormValue($tags);
-        }
-        // form params
-        if ($account_id !== null) {
-            $formParams['account_id'] = ObjectSerializer::toFormValue($account_id);
         }
 
         if ($multipart) {
@@ -2545,22 +2518,22 @@ class DefaultApi
      *
      * 设备列表
      *
-     * @param  string $keyword 设备imei或备注模糊查询 (required)
      * @param  string $tags 标签名称,支持同时查询多个，用英文逗号隔开 (optional)
      * @param  string $mark 设备备注 (optional)
      * @param  string $imei 设备imei,支持同事查询多个，用英文逗号隔开 (optional)
      * @param  string $account_id 子账户id (optional)
-     * @param  string $include_child 是否包含子账户，默认是false，返回true时包含子账户的设备 (optional)
+     * @param  int $include_child 是否包含子账户，默认是0，返回1时包含子账户的设备 (optional)
      * @param  string $page page (optional)
      * @param  int $page_size page_size (optional)
+     * @param  string $keyword 设备imei或备注模糊查询 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Wherewhere\Model\InlineResponse2001|object
      */
-    public function devicesGet($keyword, $tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null)
+    public function devicesGet($tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null, $keyword = null)
     {
-        list($response) = $this->devicesGetWithHttpInfo($keyword, $tags, $mark, $imei, $account_id, $include_child, $page, $page_size);
+        list($response) = $this->devicesGetWithHttpInfo($tags, $mark, $imei, $account_id, $include_child, $page, $page_size, $keyword);
         return $response;
     }
 
@@ -2569,22 +2542,22 @@ class DefaultApi
      *
      * 设备列表
      *
-     * @param  string $keyword 设备imei或备注模糊查询 (required)
      * @param  string $tags 标签名称,支持同时查询多个，用英文逗号隔开 (optional)
      * @param  string $mark 设备备注 (optional)
      * @param  string $imei 设备imei,支持同事查询多个，用英文逗号隔开 (optional)
      * @param  string $account_id 子账户id (optional)
-     * @param  string $include_child 是否包含子账户，默认是false，返回true时包含子账户的设备 (optional)
+     * @param  int $include_child 是否包含子账户，默认是0，返回1时包含子账户的设备 (optional)
      * @param  string $page (optional)
      * @param  int $page_size (optional)
+     * @param  string $keyword 设备imei或备注模糊查询 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Wherewhere\Model\InlineResponse2001|object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function devicesGetWithHttpInfo($keyword, $tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null)
+    public function devicesGetWithHttpInfo($tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null, $keyword = null)
     {
-        $request = $this->devicesGetRequest($keyword, $tags, $mark, $imei, $account_id, $include_child, $page, $page_size);
+        $request = $this->devicesGetRequest($tags, $mark, $imei, $account_id, $include_child, $page, $page_size, $keyword);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2689,21 +2662,21 @@ class DefaultApi
      *
      * 设备列表
      *
-     * @param  string $keyword 设备imei或备注模糊查询 (required)
      * @param  string $tags 标签名称,支持同时查询多个，用英文逗号隔开 (optional)
      * @param  string $mark 设备备注 (optional)
      * @param  string $imei 设备imei,支持同事查询多个，用英文逗号隔开 (optional)
      * @param  string $account_id 子账户id (optional)
-     * @param  string $include_child 是否包含子账户，默认是false，返回true时包含子账户的设备 (optional)
+     * @param  int $include_child 是否包含子账户，默认是0，返回1时包含子账户的设备 (optional)
      * @param  string $page (optional)
      * @param  int $page_size (optional)
+     * @param  string $keyword 设备imei或备注模糊查询 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function devicesGetAsync($keyword, $tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null)
+    public function devicesGetAsync($tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null, $keyword = null)
     {
-        return $this->devicesGetAsyncWithHttpInfo($keyword, $tags, $mark, $imei, $account_id, $include_child, $page, $page_size)
+        return $this->devicesGetAsyncWithHttpInfo($tags, $mark, $imei, $account_id, $include_child, $page, $page_size, $keyword)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2716,22 +2689,22 @@ class DefaultApi
      *
      * 设备列表
      *
-     * @param  string $keyword 设备imei或备注模糊查询 (required)
      * @param  string $tags 标签名称,支持同时查询多个，用英文逗号隔开 (optional)
      * @param  string $mark 设备备注 (optional)
      * @param  string $imei 设备imei,支持同事查询多个，用英文逗号隔开 (optional)
      * @param  string $account_id 子账户id (optional)
-     * @param  string $include_child 是否包含子账户，默认是false，返回true时包含子账户的设备 (optional)
+     * @param  int $include_child 是否包含子账户，默认是0，返回1时包含子账户的设备 (optional)
      * @param  string $page (optional)
      * @param  int $page_size (optional)
+     * @param  string $keyword 设备imei或备注模糊查询 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function devicesGetAsyncWithHttpInfo($keyword, $tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null)
+    public function devicesGetAsyncWithHttpInfo($tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null, $keyword = null)
     {
         $returnType = '\Wherewhere\Model\InlineResponse2001';
-        $request = $this->devicesGetRequest($keyword, $tags, $mark, $imei, $account_id, $include_child, $page, $page_size);
+        $request = $this->devicesGetRequest($tags, $mark, $imei, $account_id, $include_child, $page, $page_size, $keyword);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2769,26 +2742,20 @@ class DefaultApi
     /**
      * Create request for operation 'devicesGet'
      *
-     * @param  string $keyword 设备imei或备注模糊查询 (required)
      * @param  string $tags 标签名称,支持同时查询多个，用英文逗号隔开 (optional)
      * @param  string $mark 设备备注 (optional)
      * @param  string $imei 设备imei,支持同事查询多个，用英文逗号隔开 (optional)
      * @param  string $account_id 子账户id (optional)
-     * @param  string $include_child 是否包含子账户，默认是false，返回true时包含子账户的设备 (optional)
+     * @param  int $include_child 是否包含子账户，默认是0，返回1时包含子账户的设备 (optional)
      * @param  string $page (optional)
      * @param  int $page_size (optional)
+     * @param  string $keyword 设备imei或备注模糊查询 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function devicesGetRequest($keyword, $tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null)
+    public function devicesGetRequest($tags = null, $mark = null, $imei = null, $account_id = null, $include_child = null, $page = null, $page_size = null, $keyword = null)
     {
-        // verify the required parameter 'keyword' is set
-        if ($keyword === null || (is_array($keyword) && count($keyword) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $keyword when calling devicesGet'
-            );
-        }
 
         $resourcePath = '/devices';
         $formParams = [];
@@ -2955,7 +2922,6 @@ class DefaultApi
      *
      * 获得最新定位
      *
-     * @param  string $share_id share_id (required)
      * @param  string $imei 为空时，返回所有，支持查询多个imei,用逗号隔开 (optional)
      * @param  string $mark 车辆备注，例如车牌号 (optional)
      * @param  string $keyword 模糊搜索，只针对imei和mark (optional)
@@ -2963,7 +2929,7 @@ class DefaultApi
      * @param  string $map_type 地图类型，支持三种类型，默认是地球坐标， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
      * @param  string $parking_id 车库ID (optional)
      * @param  string $account_id 子账户ID (optional)
-     * @param  string $include_child 非必填，是否包含子账户设备定位，默认是false (optional)
+     * @param  int $include_child 非必填，是否包含子账户设备定位，默认是0 (optional)
      * @param  int $is_show 非必填 1代表过滤坐标为0的数据 0代表不过滤 (optional)
      * @param  int $drive_status 行驶状态: 1行驶中 2停车 3离线 (optional)
      *
@@ -2971,9 +2937,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Wherewhere\Model\InlineResponse200
      */
-    public function locationGet($share_id, $imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
+    public function locationGet($imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
     {
-        list($response) = $this->locationGetWithHttpInfo($share_id, $imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status);
+        list($response) = $this->locationGetWithHttpInfo($imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status);
         return $response;
     }
 
@@ -2982,7 +2948,6 @@ class DefaultApi
      *
      * 获得最新定位
      *
-     * @param  string $share_id (required)
      * @param  string $imei 为空时，返回所有，支持查询多个imei,用逗号隔开 (optional)
      * @param  string $mark 车辆备注，例如车牌号 (optional)
      * @param  string $keyword 模糊搜索，只针对imei和mark (optional)
@@ -2990,7 +2955,7 @@ class DefaultApi
      * @param  string $map_type 地图类型，支持三种类型，默认是地球坐标， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
      * @param  string $parking_id 车库ID (optional)
      * @param  string $account_id 子账户ID (optional)
-     * @param  string $include_child 非必填，是否包含子账户设备定位，默认是false (optional)
+     * @param  int $include_child 非必填，是否包含子账户设备定位，默认是0 (optional)
      * @param  int $is_show 非必填 1代表过滤坐标为0的数据 0代表不过滤 (optional)
      * @param  int $drive_status 行驶状态: 1行驶中 2停车 3离线 (optional)
      *
@@ -2998,9 +2963,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Wherewhere\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function locationGetWithHttpInfo($share_id, $imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
+    public function locationGetWithHttpInfo($imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
     {
-        $request = $this->locationGetRequest($share_id, $imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status);
+        $request = $this->locationGetRequest($imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3085,7 +3050,6 @@ class DefaultApi
      *
      * 获得最新定位
      *
-     * @param  string $share_id (required)
      * @param  string $imei 为空时，返回所有，支持查询多个imei,用逗号隔开 (optional)
      * @param  string $mark 车辆备注，例如车牌号 (optional)
      * @param  string $keyword 模糊搜索，只针对imei和mark (optional)
@@ -3093,16 +3057,16 @@ class DefaultApi
      * @param  string $map_type 地图类型，支持三种类型，默认是地球坐标， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
      * @param  string $parking_id 车库ID (optional)
      * @param  string $account_id 子账户ID (optional)
-     * @param  string $include_child 非必填，是否包含子账户设备定位，默认是false (optional)
+     * @param  int $include_child 非必填，是否包含子账户设备定位，默认是0 (optional)
      * @param  int $is_show 非必填 1代表过滤坐标为0的数据 0代表不过滤 (optional)
      * @param  int $drive_status 行驶状态: 1行驶中 2停车 3离线 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationGetAsync($share_id, $imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
+    public function locationGetAsync($imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
     {
-        return $this->locationGetAsyncWithHttpInfo($share_id, $imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status)
+        return $this->locationGetAsyncWithHttpInfo($imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3115,7 +3079,6 @@ class DefaultApi
      *
      * 获得最新定位
      *
-     * @param  string $share_id (required)
      * @param  string $imei 为空时，返回所有，支持查询多个imei,用逗号隔开 (optional)
      * @param  string $mark 车辆备注，例如车牌号 (optional)
      * @param  string $keyword 模糊搜索，只针对imei和mark (optional)
@@ -3123,17 +3086,17 @@ class DefaultApi
      * @param  string $map_type 地图类型，支持三种类型，默认是地球坐标， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
      * @param  string $parking_id 车库ID (optional)
      * @param  string $account_id 子账户ID (optional)
-     * @param  string $include_child 非必填，是否包含子账户设备定位，默认是false (optional)
+     * @param  int $include_child 非必填，是否包含子账户设备定位，默认是0 (optional)
      * @param  int $is_show 非必填 1代表过滤坐标为0的数据 0代表不过滤 (optional)
      * @param  int $drive_status 行驶状态: 1行驶中 2停车 3离线 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function locationGetAsyncWithHttpInfo($share_id, $imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
+    public function locationGetAsyncWithHttpInfo($imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
     {
         $returnType = '\Wherewhere\Model\InlineResponse200';
-        $request = $this->locationGetRequest($share_id, $imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status);
+        $request = $this->locationGetRequest($imei, $mark, $keyword, $tags, $map_type, $parking_id, $account_id, $include_child, $is_show, $drive_status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3171,7 +3134,6 @@ class DefaultApi
     /**
      * Create request for operation 'locationGet'
      *
-     * @param  string $share_id (required)
      * @param  string $imei 为空时，返回所有，支持查询多个imei,用逗号隔开 (optional)
      * @param  string $mark 车辆备注，例如车牌号 (optional)
      * @param  string $keyword 模糊搜索，只针对imei和mark (optional)
@@ -3179,21 +3141,15 @@ class DefaultApi
      * @param  string $map_type 地图类型，支持三种类型，默认是地球坐标， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
      * @param  string $parking_id 车库ID (optional)
      * @param  string $account_id 子账户ID (optional)
-     * @param  string $include_child 非必填，是否包含子账户设备定位，默认是false (optional)
+     * @param  int $include_child 非必填，是否包含子账户设备定位，默认是0 (optional)
      * @param  int $is_show 非必填 1代表过滤坐标为0的数据 0代表不过滤 (optional)
      * @param  int $drive_status 行驶状态: 1行驶中 2停车 3离线 (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function locationGetRequest($share_id, $imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
+    public function locationGetRequest($imei = null, $mark = null, $keyword = null, $tags = null, $map_type = null, $parking_id = null, $account_id = null, $include_child = null, $is_show = null, $drive_status = null)
     {
-        // verify the required parameter 'share_id' is set
-        if ($share_id === null || (is_array($share_id) && count($share_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $share_id when calling locationGet'
-            );
-        }
 
         $resourcePath = '/location';
         $formParams = [];
@@ -3310,17 +3266,6 @@ class DefaultApi
             }
             else {
                 $queryParams['drive_status'] = $drive_status;
-            }
-        }
-        // query params
-        if ($share_id !== null) {
-            if('form' === 'form' && is_array($share_id)) {
-                foreach($share_id as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['share_id'] = $share_id;
             }
         }
 
@@ -3717,13 +3662,13 @@ class DefaultApi
      * @param  float $latitude 经度 (required)
      * @param  float $longitude 纬度 (required)
      * @param  float $speed 速度，单位是km/h (required)
-     * @param  string $type 类型 gps|wifi|location，默认是gps (required)
-     * @param  int $gps_time 时间戳 (required)
+     * @param  string $type 类型 bd09|wgps84，默认是bd09 (required)
+     * @param  int $gps_time 设备定位时间 (required)
      * @param  float $course 航向，默认是0 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Wherewhere\Model\InlineResponse2006
      */
     public function locationUpdatePost($imei, $latitude, $longitude, $speed, $type, $gps_time, $course = null)
     {
@@ -3740,13 +3685,13 @@ class DefaultApi
      * @param  float $latitude 经度 (required)
      * @param  float $longitude 纬度 (required)
      * @param  float $speed 速度，单位是km/h (required)
-     * @param  string $type 类型 gps|wifi|location，默认是gps (required)
-     * @param  int $gps_time 时间戳 (required)
+     * @param  string $type 类型 bd09|wgps84，默认是bd09 (required)
+     * @param  int $gps_time 设备定位时间 (required)
      * @param  float $course 航向，默认是0 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
     public function locationUpdatePostWithHttpInfo($imei, $latitude, $longitude, $speed, $type, $gps_time, $course = null)
     {
@@ -3789,20 +3734,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2006' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2006', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Wherewhere\Model\InlineResponse2006';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3820,7 +3765,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Wherewhere\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3839,8 +3784,8 @@ class DefaultApi
      * @param  float $latitude 经度 (required)
      * @param  float $longitude 纬度 (required)
      * @param  float $speed 速度，单位是km/h (required)
-     * @param  string $type 类型 gps|wifi|location，默认是gps (required)
-     * @param  int $gps_time 时间戳 (required)
+     * @param  string $type 类型 bd09|wgps84，默认是bd09 (required)
+     * @param  int $gps_time 设备定位时间 (required)
      * @param  float $course 航向，默认是0 (optional)
      *
      * @throws \InvalidArgumentException
@@ -3865,8 +3810,8 @@ class DefaultApi
      * @param  float $latitude 经度 (required)
      * @param  float $longitude 纬度 (required)
      * @param  float $speed 速度，单位是km/h (required)
-     * @param  string $type 类型 gps|wifi|location，默认是gps (required)
-     * @param  int $gps_time 时间戳 (required)
+     * @param  string $type 类型 bd09|wgps84，默认是bd09 (required)
+     * @param  int $gps_time 设备定位时间 (required)
      * @param  float $course 航向，默认是0 (optional)
      *
      * @throws \InvalidArgumentException
@@ -3874,7 +3819,7 @@ class DefaultApi
      */
     public function locationUpdatePostAsyncWithHttpInfo($imei, $latitude, $longitude, $speed, $type, $gps_time, $course = null)
     {
-        $returnType = 'object';
+        $returnType = '\Wherewhere\Model\InlineResponse2006';
         $request = $this->locationUpdatePostRequest($imei, $latitude, $longitude, $speed, $type, $gps_time, $course);
 
         return $this->client
@@ -3917,8 +3862,8 @@ class DefaultApi
      * @param  float $latitude 经度 (required)
      * @param  float $longitude 纬度 (required)
      * @param  float $speed 速度，单位是km/h (required)
-     * @param  string $type 类型 gps|wifi|location，默认是gps (required)
-     * @param  int $gps_time 时间戳 (required)
+     * @param  string $type 类型 bd09|wgps84，默认是bd09 (required)
+     * @param  int $gps_time 设备定位时间 (required)
      * @param  float $course 航向，默认是0 (optional)
      *
      * @throws \InvalidArgumentException
@@ -4069,9 +4014,7 @@ class DefaultApi
      * 根据设备获得里程统计
      *
      * @param  string $type 日期类型，month和year和hour和last30days (required)
-     * @param  string $value 202101代表2021年1月，或2021,或20230609 (required)
-     * @param  string $share_id share_id (required)
-     * @param  string $is_export 是否导出 (required)
+     * @param  string $value 202101代表2021年1月，或2021,或20230609 (optional)
      * @param  string $imei 设备号 (optional)
      * @param  string $tags 设备标签 (optional)
      * @param  string $order_by 排序字段 distance | time | date，默认是distance，time是驾驶时长，date是日期 (optional)
@@ -4081,11 +4024,11 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Wherewhere\Model\InlineResponse2008
+     * @return \Wherewhere\Model\InlineResponse2009
      */
-    public function reportByDeviceGet($type, $value, $share_id, $is_export, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
+    public function reportByDeviceGet($type, $value = null, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
     {
-        list($response) = $this->reportByDeviceGetWithHttpInfo($type, $value, $share_id, $is_export, $imei, $tags, $order_by, $order_type, $m, $n);
+        list($response) = $this->reportByDeviceGetWithHttpInfo($type, $value, $imei, $tags, $order_by, $order_type, $m, $n);
         return $response;
     }
 
@@ -4095,9 +4038,7 @@ class DefaultApi
      * 根据设备获得里程统计
      *
      * @param  string $type 日期类型，month和year和hour和last30days (required)
-     * @param  string $value 202101代表2021年1月，或2021,或20230609 (required)
-     * @param  string $share_id (required)
-     * @param  string $is_export 是否导出 (required)
+     * @param  string $value 202101代表2021年1月，或2021,或20230609 (optional)
      * @param  string $imei 设备号 (optional)
      * @param  string $tags 设备标签 (optional)
      * @param  string $order_by 排序字段 distance | time | date，默认是distance，time是驾驶时长，date是日期 (optional)
@@ -4107,11 +4048,11 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Wherewhere\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reportByDeviceGetWithHttpInfo($type, $value, $share_id, $is_export, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
+    public function reportByDeviceGetWithHttpInfo($type, $value = null, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
     {
-        $request = $this->reportByDeviceGetRequest($type, $value, $share_id, $is_export, $imei, $tags, $order_by, $order_type, $m, $n);
+        $request = $this->reportByDeviceGetRequest($type, $value, $imei, $tags, $order_by, $order_type, $m, $n);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4150,20 +4091,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wherewhere\Model\InlineResponse2008' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2009' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2008', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2009', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Wherewhere\Model\InlineResponse2008';
+            $returnType = '\Wherewhere\Model\InlineResponse2009';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4181,7 +4122,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wherewhere\Model\InlineResponse2008',
+                        '\Wherewhere\Model\InlineResponse2009',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4197,9 +4138,7 @@ class DefaultApi
      * 根据设备获得里程统计
      *
      * @param  string $type 日期类型，month和year和hour和last30days (required)
-     * @param  string $value 202101代表2021年1月，或2021,或20230609 (required)
-     * @param  string $share_id (required)
-     * @param  string $is_export 是否导出 (required)
+     * @param  string $value 202101代表2021年1月，或2021,或20230609 (optional)
      * @param  string $imei 设备号 (optional)
      * @param  string $tags 设备标签 (optional)
      * @param  string $order_by 排序字段 distance | time | date，默认是distance，time是驾驶时长，date是日期 (optional)
@@ -4210,9 +4149,9 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportByDeviceGetAsync($type, $value, $share_id, $is_export, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
+    public function reportByDeviceGetAsync($type, $value = null, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
     {
-        return $this->reportByDeviceGetAsyncWithHttpInfo($type, $value, $share_id, $is_export, $imei, $tags, $order_by, $order_type, $m, $n)
+        return $this->reportByDeviceGetAsyncWithHttpInfo($type, $value, $imei, $tags, $order_by, $order_type, $m, $n)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4226,9 +4165,7 @@ class DefaultApi
      * 根据设备获得里程统计
      *
      * @param  string $type 日期类型，month和year和hour和last30days (required)
-     * @param  string $value 202101代表2021年1月，或2021,或20230609 (required)
-     * @param  string $share_id (required)
-     * @param  string $is_export 是否导出 (required)
+     * @param  string $value 202101代表2021年1月，或2021,或20230609 (optional)
      * @param  string $imei 设备号 (optional)
      * @param  string $tags 设备标签 (optional)
      * @param  string $order_by 排序字段 distance | time | date，默认是distance，time是驾驶时长，date是日期 (optional)
@@ -4239,10 +4176,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reportByDeviceGetAsyncWithHttpInfo($type, $value, $share_id, $is_export, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
+    public function reportByDeviceGetAsyncWithHttpInfo($type, $value = null, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
     {
-        $returnType = '\Wherewhere\Model\InlineResponse2008';
-        $request = $this->reportByDeviceGetRequest($type, $value, $share_id, $is_export, $imei, $tags, $order_by, $order_type, $m, $n);
+        $returnType = '\Wherewhere\Model\InlineResponse2009';
+        $request = $this->reportByDeviceGetRequest($type, $value, $imei, $tags, $order_by, $order_type, $m, $n);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4281,9 +4218,7 @@ class DefaultApi
      * Create request for operation 'reportByDeviceGet'
      *
      * @param  string $type 日期类型，month和year和hour和last30days (required)
-     * @param  string $value 202101代表2021年1月，或2021,或20230609 (required)
-     * @param  string $share_id (required)
-     * @param  string $is_export 是否导出 (required)
+     * @param  string $value 202101代表2021年1月，或2021,或20230609 (optional)
      * @param  string $imei 设备号 (optional)
      * @param  string $tags 设备标签 (optional)
      * @param  string $order_by 排序字段 distance | time | date，默认是distance，time是驾驶时长，date是日期 (optional)
@@ -4294,30 +4229,12 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function reportByDeviceGetRequest($type, $value, $share_id, $is_export, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
+    public function reportByDeviceGetRequest($type, $value = null, $imei = null, $tags = null, $order_by = null, $order_type = null, $m = null, $n = null)
     {
         // verify the required parameter 'type' is set
         if ($type === null || (is_array($type) && count($type) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $type when calling reportByDeviceGet'
-            );
-        }
-        // verify the required parameter 'value' is set
-        if ($value === null || (is_array($value) && count($value) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $value when calling reportByDeviceGet'
-            );
-        }
-        // verify the required parameter 'share_id' is set
-        if ($share_id === null || (is_array($share_id) && count($share_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $share_id when calling reportByDeviceGet'
-            );
-        }
-        // verify the required parameter 'is_export' is set
-        if ($is_export === null || (is_array($is_export) && count($is_export) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $is_export when calling reportByDeviceGet'
             );
         }
 
@@ -4416,28 +4333,6 @@ class DefaultApi
                 $queryParams['n'] = $n;
             }
         }
-        // query params
-        if ($share_id !== null) {
-            if('form' === 'form' && is_array($share_id)) {
-                foreach($share_id as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['share_id'] = $share_id;
-            }
-        }
-        // query params
-        if ($is_export !== null) {
-            if('form' === 'form' && is_array($is_export)) {
-                foreach($is_export as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['is_export'] = $is_export;
-            }
-        }
 
 
 
@@ -4497,579 +4392,6 @@ class DefaultApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation shareInfoGet
-     *
-     * 获取分享链接信息
-     *
-     * @param  string $share_id share_id (required)
-     *
-     * @throws \Wherewhere\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return object
-     */
-    public function shareInfoGet($share_id)
-    {
-        list($response) = $this->shareInfoGetWithHttpInfo($share_id);
-        return $response;
-    }
-
-    /**
-     * Operation shareInfoGetWithHttpInfo
-     *
-     * 获取分享链接信息
-     *
-     * @param  string $share_id (required)
-     *
-     * @throws \Wherewhere\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function shareInfoGetWithHttpInfo($share_id)
-    {
-        $request = $this->shareInfoGetRequest($share_id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'object', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'object';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation shareInfoGetAsync
-     *
-     * 获取分享链接信息
-     *
-     * @param  string $share_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function shareInfoGetAsync($share_id)
-    {
-        return $this->shareInfoGetAsyncWithHttpInfo($share_id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation shareInfoGetAsyncWithHttpInfo
-     *
-     * 获取分享链接信息
-     *
-     * @param  string $share_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function shareInfoGetAsyncWithHttpInfo($share_id)
-    {
-        $returnType = 'object';
-        $request = $this->shareInfoGetRequest($share_id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'shareInfoGet'
-     *
-     * @param  string $share_id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function shareInfoGetRequest($share_id)
-    {
-        // verify the required parameter 'share_id' is set
-        if ($share_id === null || (is_array($share_id) && count($share_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $share_id when calling shareInfoGet'
-            );
-        }
-
-        $resourcePath = '/share/info';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($share_id !== null) {
-            if('form' === 'form' && is_array($share_id)) {
-                foreach($share_id as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['share_id'] = $share_id;
-            }
-        }
-
-
-
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation shareLinkPost
-     *
-     * 生成分享链接
-     *
-     * @param  string $imei 设备号 (required)
-     * @param  string $url 分享链接 (required)
-     * @param  int $expire_type 有效期类型 1:1小时 2:1天 3:7天(默认) 4:永久 (optional)
-     *
-     * @throws \Wherewhere\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return object
-     */
-    public function shareLinkPost($imei, $url, $expire_type = null)
-    {
-        list($response) = $this->shareLinkPostWithHttpInfo($imei, $url, $expire_type);
-        return $response;
-    }
-
-    /**
-     * Operation shareLinkPostWithHttpInfo
-     *
-     * 生成分享链接
-     *
-     * @param  string $imei 设备号 (required)
-     * @param  string $url 分享链接 (required)
-     * @param  int $expire_type 有效期类型 1:1小时 2:1天 3:7天(默认) 4:永久 (optional)
-     *
-     * @throws \Wherewhere\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function shareLinkPostWithHttpInfo($imei, $url, $expire_type = null)
-    {
-        $request = $this->shareLinkPostRequest($imei, $url, $expire_type);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 200:
-                    if ('object' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, 'object', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = 'object';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation shareLinkPostAsync
-     *
-     * 生成分享链接
-     *
-     * @param  string $imei 设备号 (required)
-     * @param  string $url 分享链接 (required)
-     * @param  int $expire_type 有效期类型 1:1小时 2:1天 3:7天(默认) 4:永久 (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function shareLinkPostAsync($imei, $url, $expire_type = null)
-    {
-        return $this->shareLinkPostAsyncWithHttpInfo($imei, $url, $expire_type)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation shareLinkPostAsyncWithHttpInfo
-     *
-     * 生成分享链接
-     *
-     * @param  string $imei 设备号 (required)
-     * @param  string $url 分享链接 (required)
-     * @param  int $expire_type 有效期类型 1:1小时 2:1天 3:7天(默认) 4:永久 (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function shareLinkPostAsyncWithHttpInfo($imei, $url, $expire_type = null)
-    {
-        $returnType = 'object';
-        $request = $this->shareLinkPostRequest($imei, $url, $expire_type);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'shareLinkPost'
-     *
-     * @param  string $imei 设备号 (required)
-     * @param  string $url 分享链接 (required)
-     * @param  int $expire_type 有效期类型 1:1小时 2:1天 3:7天(默认) 4:永久 (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function shareLinkPostRequest($imei, $url, $expire_type = null)
-    {
-        // verify the required parameter 'imei' is set
-        if ($imei === null || (is_array($imei) && count($imei) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $imei when calling shareLinkPost'
-            );
-        }
-        // verify the required parameter 'url' is set
-        if ($url === null || (is_array($url) && count($url) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $url when calling shareLinkPost'
-            );
-        }
-
-        $resourcePath = '/share/link';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-        // form params
-        if ($imei !== null) {
-            $formParams['imei'] = ObjectSerializer::toFormValue($imei);
-        }
-        // form params
-        if ($expire_type !== null) {
-            $formParams['expire_type'] = ObjectSerializer::toFormValue($expire_type);
-        }
-        // form params
-        if ($url !== null) {
-            $formParams['url'] = ObjectSerializer::toFormValue($url);
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -5087,7 +4409,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Wherewhere\Model\InlineResponse2007
+     * @return \Wherewhere\Model\InlineResponse2008
      */
     public function trackAnalysisGet($imei, $date, $ignore_time = null)
     {
@@ -5106,7 +4428,7 @@ class DefaultApi
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Wherewhere\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
      */
     public function trackAnalysisGetWithHttpInfo($imei, $date, $ignore_time = null)
     {
@@ -5149,20 +4471,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wherewhere\Model\InlineResponse2007' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2008' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2007', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2008', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Wherewhere\Model\InlineResponse2007';
+            $returnType = '\Wherewhere\Model\InlineResponse2008';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5180,7 +4502,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wherewhere\Model\InlineResponse2007',
+                        '\Wherewhere\Model\InlineResponse2008',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5226,7 +4548,7 @@ class DefaultApi
      */
     public function trackAnalysisGetAsyncWithHttpInfo($imei, $date, $ignore_time = null)
     {
-        $returnType = '\Wherewhere\Model\InlineResponse2007';
+        $returnType = '\Wherewhere\Model\InlineResponse2008';
         $request = $this->trackAnalysisGetRequest($imei, $date, $ignore_time);
 
         return $this->client
@@ -5401,12 +4723,12 @@ class DefaultApi
      * @param  int $start_time 开始时间戳 (required)
      * @param  int $end_time 结束时间戳 (required)
      * @param  string $order 排序 asc | desc，默认是按gps_time 顺序排列 (optional)
-     * @param  string $map_type 地图类型，支持三种类型不区分大小写，默认是bd09， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
+     * @param  string $map_type 地图类型，bd09|wgs84, 默认bd09 (optional)
      * @param  int $is_show 是否过滤坐标为0的数据 1过滤 0不过滤 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Wherewhere\Model\InlineResponse2006
+     * @return \Wherewhere\Model\InlineResponse2007
      */
     public function trackHistoryGet($imei, $start_time, $end_time, $order = null, $map_type = null, $is_show = null)
     {
@@ -5423,12 +4745,12 @@ class DefaultApi
      * @param  int $start_time 开始时间戳 (required)
      * @param  int $end_time 结束时间戳 (required)
      * @param  string $order 排序 asc | desc，默认是按gps_time 顺序排列 (optional)
-     * @param  string $map_type 地图类型，支持三种类型不区分大小写，默认是bd09， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
+     * @param  string $map_type 地图类型，bd09|wgs84, 默认bd09 (optional)
      * @param  int $is_show 是否过滤坐标为0的数据 1过滤 0不过滤 (optional)
      *
      * @throws \Wherewhere\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Wherewhere\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Wherewhere\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
     public function trackHistoryGetWithHttpInfo($imei, $start_time, $end_time, $order = null, $map_type = null, $is_show = null)
     {
@@ -5471,20 +4793,20 @@ class DefaultApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Wherewhere\Model\InlineResponse2006' === '\SplFileObject') {
+                    if ('\Wherewhere\Model\InlineResponse2007' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2006', []),
+                        ObjectSerializer::deserialize($content, '\Wherewhere\Model\InlineResponse2007', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Wherewhere\Model\InlineResponse2006';
+            $returnType = '\Wherewhere\Model\InlineResponse2007';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5502,7 +4824,7 @@ class DefaultApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Wherewhere\Model\InlineResponse2006',
+                        '\Wherewhere\Model\InlineResponse2007',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5521,7 +4843,7 @@ class DefaultApi
      * @param  int $start_time 开始时间戳 (required)
      * @param  int $end_time 结束时间戳 (required)
      * @param  string $order 排序 asc | desc，默认是按gps_time 顺序排列 (optional)
-     * @param  string $map_type 地图类型，支持三种类型不区分大小写，默认是bd09， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
+     * @param  string $map_type 地图类型，bd09|wgs84, 默认bd09 (optional)
      * @param  int $is_show 是否过滤坐标为0的数据 1过滤 0不过滤 (optional)
      *
      * @throws \InvalidArgumentException
@@ -5546,7 +4868,7 @@ class DefaultApi
      * @param  int $start_time 开始时间戳 (required)
      * @param  int $end_time 结束时间戳 (required)
      * @param  string $order 排序 asc | desc，默认是按gps_time 顺序排列 (optional)
-     * @param  string $map_type 地图类型，支持三种类型不区分大小写，默认是bd09， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
+     * @param  string $map_type 地图类型，bd09|wgs84, 默认bd09 (optional)
      * @param  int $is_show 是否过滤坐标为0的数据 1过滤 0不过滤 (optional)
      *
      * @throws \InvalidArgumentException
@@ -5554,7 +4876,7 @@ class DefaultApi
      */
     public function trackHistoryGetAsyncWithHttpInfo($imei, $start_time, $end_time, $order = null, $map_type = null, $is_show = null)
     {
-        $returnType = '\Wherewhere\Model\InlineResponse2006';
+        $returnType = '\Wherewhere\Model\InlineResponse2007';
         $request = $this->trackHistoryGetRequest($imei, $start_time, $end_time, $order, $map_type, $is_show);
 
         return $this->client
@@ -5597,7 +4919,7 @@ class DefaultApi
      * @param  int $start_time 开始时间戳 (required)
      * @param  int $end_time 结束时间戳 (required)
      * @param  string $order 排序 asc | desc，默认是按gps_time 顺序排列 (optional)
-     * @param  string $map_type 地图类型，支持三种类型不区分大小写，默认是bd09， 火星坐标 GCJ02 百度坐标BD09 地球坐标 WGS84 (optional)
+     * @param  string $map_type 地图类型，bd09|wgs84, 默认bd09 (optional)
      * @param  int $is_show 是否过滤坐标为0的数据 1过滤 0不过滤 (optional)
      *
      * @throws \InvalidArgumentException

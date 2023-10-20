@@ -7,7 +7,6 @@ git_user_id=$1
 git_repo_id=$2
 release_note=$3
 git_host=$4
-GIT_TOKEN="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"
 
 if [ "$git_host" = "" ]; then
     git_host="github.com"

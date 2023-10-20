@@ -60,8 +60,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'code' => 'int',
-        'data' => '\Wherewhere\Model\InlineResponse2001Data[]',
-        'msg' => 'string'
+        'msg' => 'string',
+        'data' => '\Wherewhere\Model\InlineResponse2001Data[]'
     ];
 
     /**
@@ -73,8 +73,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPIFormats = [
         'code' => null,
-        'data' => null,
-        'msg' => null
+        'msg' => null,
+        'data' => null
     ];
 
     /**
@@ -105,8 +105,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'code' => 'code',
-        'data' => 'data',
-        'msg' => 'msg'
+        'msg' => 'msg',
+        'data' => 'data'
     ];
 
     /**
@@ -116,8 +116,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'code' => 'setCode',
-        'data' => 'setData',
-        'msg' => 'setMsg'
+        'msg' => 'setMsg',
+        'data' => 'setData'
     ];
 
     /**
@@ -127,8 +127,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'code' => 'getCode',
-        'data' => 'getData',
-        'msg' => 'getMsg'
+        'msg' => 'getMsg',
+        'data' => 'getData'
     ];
 
     /**
@@ -189,8 +189,8 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(array $data = null)
     {
         $this->container['code'] = $data['code'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
         $this->container['msg'] = $data['msg'] ?? null;
+        $this->container['data'] = $data['data'] ?? null;
     }
 
     /**
@@ -205,11 +205,11 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
         if ($this->container['code'] === null) {
             $invalidProperties[] = "'code' can't be null";
         }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         if ($this->container['msg'] === null) {
             $invalidProperties[] = "'msg' can't be null";
+        }
+        if ($this->container['data'] === null) {
+            $invalidProperties[] = "'data' can't be null";
         }
         return $invalidProperties;
     }
@@ -251,30 +251,6 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets data
-     *
-     * @return \Wherewhere\Model\InlineResponse2001Data[]
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Wherewhere\Model\InlineResponse2001Data[] $data data
-     *
-     * @return self
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
      * Gets msg
      *
      * @return string
@@ -294,6 +270,30 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess, \JsonSerializab
     public function setMsg($msg)
     {
         $this->container['msg'] = $msg;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \Wherewhere\Model\InlineResponse2001Data[]
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \Wherewhere\Model\InlineResponse2001Data[] $data data
+     *
+     * @return self
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
 
         return $this;
     }

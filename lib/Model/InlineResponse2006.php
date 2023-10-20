@@ -60,7 +60,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
       */
     protected static $openAPITypes = [
         'code' => 'int',
-        'data' => '\Wherewhere\Model\InlineResponse2006Data[]',
+        'data' => 'Null',
         'msg' => 'string'
     ];
 
@@ -253,7 +253,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets data
      *
-     * @return \Wherewhere\Model\InlineResponse2006Data[]
+     * @return Null
      */
     public function getData()
     {
@@ -263,7 +263,7 @@ class InlineResponse2006 implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets data
      *
-     * @param \Wherewhere\Model\InlineResponse2006Data[] $data data
+     * @param Null $data data
      *
      * @return self
      */

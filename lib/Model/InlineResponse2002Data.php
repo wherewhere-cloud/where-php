@@ -398,7 +398,7 @@ class InlineResponse2002Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets status
      *
-     * @param string $status 状态 1 企业 0 禁用
+     * @param string $status 状态 1 启用 0 禁用
      *
      * @return self
      */

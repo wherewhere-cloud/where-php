@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **int** |  |
-**data** | [**\Wherewhere\Model\InlineResponse2006Data[]**](InlineResponse2006Data.md) |  |
+**data** | [**Null**](Null.md) |  |
 **msg** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

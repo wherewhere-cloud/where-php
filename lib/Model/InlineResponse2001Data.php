@@ -60,11 +60,8 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'imei' => 'string',
-        'device_code' => 'string',
         'tags' => 'string',
-        'mark' => 'string',
-        'status' => 'int',
-        'created_at' => 'int'
+        'mark' => 'string'
     ];
 
     /**
@@ -76,11 +73,8 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPIFormats = [
         'imei' => null,
-        'device_code' => null,
         'tags' => null,
-        'mark' => null,
-        'status' => null,
-        'created_at' => null
+        'mark' => null
     ];
 
     /**
@@ -111,11 +105,8 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $attributeMap = [
         'imei' => 'imei',
-        'device_code' => 'device_code',
         'tags' => 'tags',
-        'mark' => 'mark',
-        'status' => 'status',
-        'created_at' => 'created_at'
+        'mark' => 'mark'
     ];
 
     /**
@@ -125,11 +116,8 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $setters = [
         'imei' => 'setImei',
-        'device_code' => 'setDeviceCode',
         'tags' => 'setTags',
-        'mark' => 'setMark',
-        'status' => 'setStatus',
-        'created_at' => 'setCreatedAt'
+        'mark' => 'setMark'
     ];
 
     /**
@@ -139,11 +127,8 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
      */
     protected static $getters = [
         'imei' => 'getImei',
-        'device_code' => 'getDeviceCode',
         'tags' => 'getTags',
-        'mark' => 'getMark',
-        'status' => 'getStatus',
-        'created_at' => 'getCreatedAt'
+        'mark' => 'getMark'
     ];
 
     /**
@@ -204,11 +189,8 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     public function __construct(array $data = null)
     {
         $this->container['imei'] = $data['imei'] ?? null;
-        $this->container['device_code'] = $data['device_code'] ?? null;
         $this->container['tags'] = $data['tags'] ?? null;
         $this->container['mark'] = $data['mark'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['created_at'] = $data['created_at'] ?? null;
     }
 
     /**
@@ -220,6 +202,15 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['imei'] === null) {
+            $invalidProperties[] = "'imei' can't be null";
+        }
+        if ($this->container['tags'] === null) {
+            $invalidProperties[] = "'tags' can't be null";
+        }
+        if ($this->container['mark'] === null) {
+            $invalidProperties[] = "'mark' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -238,7 +229,7 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets imei
      *
-     * @return string|null
+     * @return string
      */
     public function getImei()
     {
@@ -248,7 +239,7 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets imei
      *
-     * @param string|null $imei imei
+     * @param string $imei 设备imei
      *
      * @return self
      */
@@ -260,33 +251,9 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets device_code
-     *
-     * @return string|null
-     */
-    public function getDeviceCode()
-    {
-        return $this->container['device_code'];
-    }
-
-    /**
-     * Sets device_code
-     *
-     * @param string|null $device_code device_code
-     *
-     * @return self
-     */
-    public function setDeviceCode($device_code)
-    {
-        $this->container['device_code'] = $device_code;
-
-        return $this;
-    }
-
-    /**
      * Gets tags
      *
-     * @return string|null
+     * @return string
      */
     public function getTags()
     {
@@ -296,7 +263,7 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets tags
      *
-     * @param string|null $tags tags
+     * @param string $tags 标签名称
      *
      * @return self
      */
@@ -310,7 +277,7 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets mark
      *
-     * @return string|null
+     * @return string
      */
     public function getMark()
     {
@@ -320,61 +287,13 @@ class InlineResponse2001Data implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets mark
      *
-     * @param string|null $mark mark
+     * @param string $mark 设备备注
      *
      * @return self
      */
     public function setMark($mark)
     {
         $this->container['mark'] = $mark;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return int|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status status
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return int|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param int|null $created_at created_at
-     *
-     * @return self
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
 
         return $this;
     }

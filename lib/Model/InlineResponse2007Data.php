@@ -59,15 +59,13 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_time' => 'string',
-        'start_lng' => 'string',
-        'start_lat' => 'string',
-        'end_time' => 'string',
-        'end_lng' => 'string',
-        'end_lat' => 'string',
-        'total_distance' => 'int',
-        'total_time' => 'int',
-        'action_type' => 'int'
+        'imei' => 'string',
+        'course' => 'int',
+        'speed' => 'int',
+        'longitude' => 'float',
+        'latitude' => 'float',
+        'gps_time' => 'int',
+        'create_time' => 'int'
     ];
 
     /**
@@ -78,15 +76,13 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'start_time' => null,
-        'start_lng' => null,
-        'start_lat' => null,
-        'end_time' => null,
-        'end_lng' => null,
-        'end_lat' => null,
-        'total_distance' => null,
-        'total_time' => null,
-        'action_type' => null
+        'imei' => null,
+        'course' => null,
+        'speed' => null,
+        'longitude' => null,
+        'latitude' => null,
+        'gps_time' => null,
+        'create_time' => null
     ];
 
     /**
@@ -116,15 +112,13 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_time' => 'start_time',
-        'start_lng' => 'start_lng',
-        'start_lat' => 'start_lat',
-        'end_time' => 'end_time',
-        'end_lng' => 'end_lng',
-        'end_lat' => 'end_lat',
-        'total_distance' => 'total_distance',
-        'total_time' => 'total_time',
-        'action_type' => 'action_type'
+        'imei' => 'imei',
+        'course' => 'course',
+        'speed' => 'speed',
+        'longitude' => 'longitude',
+        'latitude' => 'latitude',
+        'gps_time' => 'gps_time',
+        'create_time' => 'create_time'
     ];
 
     /**
@@ -133,15 +127,13 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'start_time' => 'setStartTime',
-        'start_lng' => 'setStartLng',
-        'start_lat' => 'setStartLat',
-        'end_time' => 'setEndTime',
-        'end_lng' => 'setEndLng',
-        'end_lat' => 'setEndLat',
-        'total_distance' => 'setTotalDistance',
-        'total_time' => 'setTotalTime',
-        'action_type' => 'setActionType'
+        'imei' => 'setImei',
+        'course' => 'setCourse',
+        'speed' => 'setSpeed',
+        'longitude' => 'setLongitude',
+        'latitude' => 'setLatitude',
+        'gps_time' => 'setGpsTime',
+        'create_time' => 'setCreateTime'
     ];
 
     /**
@@ -150,15 +142,13 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'start_time' => 'getStartTime',
-        'start_lng' => 'getStartLng',
-        'start_lat' => 'getStartLat',
-        'end_time' => 'getEndTime',
-        'end_lng' => 'getEndLng',
-        'end_lat' => 'getEndLat',
-        'total_distance' => 'getTotalDistance',
-        'total_time' => 'getTotalTime',
-        'action_type' => 'getActionType'
+        'imei' => 'getImei',
+        'course' => 'getCourse',
+        'speed' => 'getSpeed',
+        'longitude' => 'getLongitude',
+        'latitude' => 'getLatitude',
+        'gps_time' => 'getGpsTime',
+        'create_time' => 'getCreateTime'
     ];
 
     /**
@@ -218,15 +208,13 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['start_time'] = $data['start_time'] ?? null;
-        $this->container['start_lng'] = $data['start_lng'] ?? null;
-        $this->container['start_lat'] = $data['start_lat'] ?? null;
-        $this->container['end_time'] = $data['end_time'] ?? null;
-        $this->container['end_lng'] = $data['end_lng'] ?? null;
-        $this->container['end_lat'] = $data['end_lat'] ?? null;
-        $this->container['total_distance'] = $data['total_distance'] ?? null;
-        $this->container['total_time'] = $data['total_time'] ?? null;
-        $this->container['action_type'] = $data['action_type'] ?? null;
+        $this->container['imei'] = $data['imei'] ?? null;
+        $this->container['course'] = $data['course'] ?? null;
+        $this->container['speed'] = $data['speed'] ?? null;
+        $this->container['longitude'] = $data['longitude'] ?? null;
+        $this->container['latitude'] = $data['latitude'] ?? null;
+        $this->container['gps_time'] = $data['gps_time'] ?? null;
+        $this->container['create_time'] = $data['create_time'] ?? null;
     }
 
     /**
@@ -238,32 +226,26 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['start_time'] === null) {
-            $invalidProperties[] = "'start_time' can't be null";
+        if ($this->container['imei'] === null) {
+            $invalidProperties[] = "'imei' can't be null";
         }
-        if ($this->container['start_lng'] === null) {
-            $invalidProperties[] = "'start_lng' can't be null";
+        if ($this->container['course'] === null) {
+            $invalidProperties[] = "'course' can't be null";
         }
-        if ($this->container['start_lat'] === null) {
-            $invalidProperties[] = "'start_lat' can't be null";
+        if ($this->container['speed'] === null) {
+            $invalidProperties[] = "'speed' can't be null";
         }
-        if ($this->container['end_time'] === null) {
-            $invalidProperties[] = "'end_time' can't be null";
+        if ($this->container['longitude'] === null) {
+            $invalidProperties[] = "'longitude' can't be null";
         }
-        if ($this->container['end_lng'] === null) {
-            $invalidProperties[] = "'end_lng' can't be null";
+        if ($this->container['latitude'] === null) {
+            $invalidProperties[] = "'latitude' can't be null";
         }
-        if ($this->container['end_lat'] === null) {
-            $invalidProperties[] = "'end_lat' can't be null";
+        if ($this->container['gps_time'] === null) {
+            $invalidProperties[] = "'gps_time' can't be null";
         }
-        if ($this->container['total_distance'] === null) {
-            $invalidProperties[] = "'total_distance' can't be null";
-        }
-        if ($this->container['total_time'] === null) {
-            $invalidProperties[] = "'total_time' can't be null";
-        }
-        if ($this->container['action_type'] === null) {
-            $invalidProperties[] = "'action_type' can't be null";
+        if ($this->container['create_time'] === null) {
+            $invalidProperties[] = "'create_time' can't be null";
         }
         return $invalidProperties;
     }
@@ -281,217 +263,169 @@ class InlineResponse2007Data implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets start_time
+     * Gets imei
      *
      * @return string
      */
-    public function getStartTime()
+    public function getImei()
     {
-        return $this->container['start_time'];
+        return $this->container['imei'];
     }
 
     /**
-     * Sets start_time
+     * Sets imei
      *
-     * @param string $start_time 起始坐标点时间
+     * @param string $imei 设备imei
      *
      * @return self
      */
-    public function setStartTime($start_time)
+    public function setImei($imei)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['imei'] = $imei;
 
         return $this;
     }
 
     /**
-     * Gets start_lng
-     *
-     * @return string
-     */
-    public function getStartLng()
-    {
-        return $this->container['start_lng'];
-    }
-
-    /**
-     * Sets start_lng
-     *
-     * @param string $start_lng 起始坐标点经度
-     *
-     * @return self
-     */
-    public function setStartLng($start_lng)
-    {
-        $this->container['start_lng'] = $start_lng;
-
-        return $this;
-    }
-
-    /**
-     * Gets start_lat
-     *
-     * @return string
-     */
-    public function getStartLat()
-    {
-        return $this->container['start_lat'];
-    }
-
-    /**
-     * Sets start_lat
-     *
-     * @param string $start_lat 起始坐标点纬度
-     *
-     * @return self
-     */
-    public function setStartLat($start_lat)
-    {
-        $this->container['start_lat'] = $start_lat;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_time
-     *
-     * @return string
-     */
-    public function getEndTime()
-    {
-        return $this->container['end_time'];
-    }
-
-    /**
-     * Sets end_time
-     *
-     * @param string $end_time 结束坐标点时间
-     *
-     * @return self
-     */
-    public function setEndTime($end_time)
-    {
-        $this->container['end_time'] = $end_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_lng
-     *
-     * @return string
-     */
-    public function getEndLng()
-    {
-        return $this->container['end_lng'];
-    }
-
-    /**
-     * Sets end_lng
-     *
-     * @param string $end_lng 结束坐标点经度
-     *
-     * @return self
-     */
-    public function setEndLng($end_lng)
-    {
-        $this->container['end_lng'] = $end_lng;
-
-        return $this;
-    }
-
-    /**
-     * Gets end_lat
-     *
-     * @return string
-     */
-    public function getEndLat()
-    {
-        return $this->container['end_lat'];
-    }
-
-    /**
-     * Sets end_lat
-     *
-     * @param string $end_lat 结束坐标点纬度
-     *
-     * @return self
-     */
-    public function setEndLat($end_lat)
-    {
-        $this->container['end_lat'] = $end_lat;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_distance
+     * Gets course
      *
      * @return int
      */
-    public function getTotalDistance()
+    public function getCourse()
     {
-        return $this->container['total_distance'];
+        return $this->container['course'];
     }
 
     /**
-     * Sets total_distance
+     * Sets course
      *
-     * @param int $total_distance 总距离，单位米
+     * @param int $course 航向
      *
      * @return self
      */
-    public function setTotalDistance($total_distance)
+    public function setCourse($course)
     {
-        $this->container['total_distance'] = $total_distance;
+        $this->container['course'] = $course;
 
         return $this;
     }
 
     /**
-     * Gets total_time
+     * Gets speed
      *
      * @return int
      */
-    public function getTotalTime()
+    public function getSpeed()
     {
-        return $this->container['total_time'];
+        return $this->container['speed'];
     }
 
     /**
-     * Sets total_time
+     * Sets speed
      *
-     * @param int $total_time 总时间，单位秒
+     * @param int $speed 速度 km/h
      *
      * @return self
      */
-    public function setTotalTime($total_time)
+    public function setSpeed($speed)
     {
-        $this->container['total_time'] = $total_time;
+        $this->container['speed'] = $speed;
 
         return $this;
     }
 
     /**
-     * Gets action_type
+     * Gets longitude
      *
-     * @return int
+     * @return float
      */
-    public function getActionType()
+    public function getLongitude()
     {
-        return $this->container['action_type'];
+        return $this->container['longitude'];
     }
 
     /**
-     * Sets action_type
+     * Sets longitude
      *
-     * @param int $action_type 驾驶行为类型  1行驶 2静止 3未上报数据
+     * @param float $longitude 经度
      *
      * @return self
      */
-    public function setActionType($action_type)
+    public function setLongitude($longitude)
     {
-        $this->container['action_type'] = $action_type;
+        $this->container['longitude'] = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets latitude
+     *
+     * @return float
+     */
+    public function getLatitude()
+    {
+        return $this->container['latitude'];
+    }
+
+    /**
+     * Sets latitude
+     *
+     * @param float $latitude 纬度
+     *
+     * @return self
+     */
+    public function setLatitude($latitude)
+    {
+        $this->container['latitude'] = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets gps_time
+     *
+     * @return int
+     */
+    public function getGpsTime()
+    {
+        return $this->container['gps_time'];
+    }
+
+    /**
+     * Sets gps_time
+     *
+     * @param int $gps_time 定位时间戳
+     *
+     * @return self
+     */
+    public function setGpsTime($gps_time)
+    {
+        $this->container['gps_time'] = $gps_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets create_time
+     *
+     * @return int
+     */
+    public function getCreateTime()
+    {
+        return $this->container['create_time'];
+    }
+
+    /**
+     * Sets create_time
+     *
+     * @param int $create_time 保存到服务器时间戳
+     *
+     * @return self
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->container['create_time'] = $create_time;
 
         return $this;
     }
