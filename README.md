@@ -43,16 +43,8 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $is_all = 'is_all_example'; // string | 是否授权全部设备
 $account_id = 'account_id_example'; // string
 $imei_list = 56; // int | 设备列表 多个用,隔开

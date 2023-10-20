@@ -38,16 +38,8 @@ accountAuthorizeDevicePost($is_all, $account_id, $imei_list): object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $is_all = 'is_all_example'; // string | 是否授权全部设备
 $account_id = 'account_id_example'; // string
 $imei_list = 56; // int | 设备列表 多个用,隔开
@@ -100,16 +92,8 @@ accountChangePasswordPost($old_password, $new_password): object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $old_password = 'old_password_example'; // string | 旧密码
 $new_password = 'new_password_example'; // string | 新密码
 
@@ -160,16 +144,8 @@ accountCreatePost($username, $password, $account_name, $remark, $active_time, $c
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $username = 'username_example'; // string | 用户名，可以是邮箱或者手机
 $password = 'password_example'; // string
 $account_name = 'account_name_example'; // string | 账户名称
@@ -230,16 +206,8 @@ accountRemoveDevicePost($account_id, $is_all, $imei_list): object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $account_id = 'account_id_example'; // string | 子账号id
 $is_all = 'is_all_example'; // string | 是否移除所有设备
 $imei_list = 56; // int | 设备列表 多个用,隔开
@@ -292,16 +260,8 @@ accountSetStatusPost($account_id, $status): object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $account_id = 'account_id_example'; // string | 子账号id
 $status = 56; // int | 1启用 0 禁用
 
@@ -352,16 +312,8 @@ accountUpdatePost($account_id, $username, $account_name, $password, $remark, $ac
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $account_id = 'account_id_example'; // string | 子账号id
 $username = 'username_example'; // string | 登录名称
 $account_name = 'account_name_example'; // string | 账号名称
@@ -424,16 +376,8 @@ accountsGet($is_include_self, $account_id): \Wherewhere\Model\InlineResponse2002
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $is_include_self = 0; // int | 是否包含主账号本身
 $account_id = 'account_id_example'; // string | 子账号id
 
@@ -486,16 +430,8 @@ deviceCreatePost($imei, $mark, $tags, $account_id): \Wherewhere\Model\InlineResp
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $imei = 'imei_example'; // string | 设备唯一识别号
 $mark = 'mark_example'; // string | 设备备注，可以是车牌号，最长100个字符
 $tags = 'tags_example'; // string | 标签名称，默认为空，支持多个标签，用逗号隔开，最多支持10个标签
@@ -552,16 +488,8 @@ devicesGet($keyword, $tags, $mark, $imei, $account_id, $include_child, $page, $p
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $keyword = 00000; // string | 设备imei或备注模糊查询
 $tags = 深圳; // string | 标签名称,支持同时查询多个，用英文逗号隔开
 $mark = 'mark_example'; // string | 设备备注
@@ -626,16 +554,8 @@ locationGet($share_id, $imei, $mark, $keyword, $tags, $map_type, $parking_id, $a
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $share_id = 9ca00e70-f352-49bf-9f33-07ca00a89ce44353; // string
 $imei = ; // string | 为空时，返回所有，支持查询多个imei,用逗号隔开
 $mark = 京ADD6246; // string | 车辆备注，例如车牌号
@@ -706,16 +626,8 @@ locationStatusGet($parking_id, $tags, $account_id, $keyword): \Wherewhere\Model\
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $parking_id = {{test_parking_id}}; // string | 选填，车库ID
 $tags = 'tags_example'; // string | 设备标签，支持多标签查询，用英文逗号隔开
 $account_id = 'account_id_example'; // string | 选填，子账户ID
@@ -772,16 +684,8 @@ locationUpdatePost($imei, $latitude, $longitude, $speed, $type, $gps_time, $cour
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $imei = 'imei_example'; // string | 设备号
 $latitude = 3.4; // float | 经度
 $longitude = 3.4; // float | 纬度
@@ -844,16 +748,8 @@ imei/tags/parking不能同时为空，用于筛选出企业下设备
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $type = month; // string | 日期类型，month和year和hour和last30days
 $value = 202201; // string | 202101代表2021年1月，或2021,或20230609
 $share_id = 9ca00e70-f352-49bf-9f33-07ca00a89ce44353; // string
@@ -920,16 +816,8 @@ shareInfoGet($share_id): object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $share_id = 2; // string
 
 try {
@@ -978,16 +866,8 @@ shareLinkPost($imei, $url, $expire_type): object
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $imei = 'imei_example'; // string | 设备号
 $url = 'url_example'; // string | 分享链接
 $expire_type = 56; // int | 有效期类型 1:1小时 2:1天 3:7天(默认) 4:永久
@@ -1040,16 +920,8 @@ trackAnalysisGet($imei, $date, $ignore_time): \Wherewhere\Model\InlineResponse20
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $imei = {{test_imei}}; // string | 设备号
 $date = 2022-02-09; // string | 查询日期
 $ignore_time = 180; // int | 可忽略的行驶途中短暂停车时间，单位秒，默认180
@@ -1102,16 +974,8 @@ trackHistoryGet($imei, $start_time, $end_time, $order, $map_type, $is_show): \Wh
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: auth
-$config = Wherewhere\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new Wherewhere\Api\DefaultApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
+// New ApiInstance
+$apiInstance = Wherewhere\ApiInstance::New('YOUR_ACCESS_TOKEN');
 $imei = {{test_imei}}; // string | 设备号
 $start_time = 1644336000; // int | 开始时间戳
 $end_time = 1644422400; // int | 结束时间戳
