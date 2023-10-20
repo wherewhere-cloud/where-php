@@ -17,7 +17,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
 ```json
 {
   "require": {
-    "wherewhere/sdk": "1.x",
+    "wherewhere/sdk": "^1.0.0",
   }
 }
 ```
